@@ -32,11 +32,10 @@ def map_keys_and_values(some_keys, some_values):
 # Написать функцию, которая принимает строку и возвращает словарь состоящий из ключей - символов из строки, значений - количество повторений этих символов в строке
 s = 'some string'
 def count_symbols(some_string):
-  keys = set(some_string)
-  return dict([
-    (key, some_string.count(key))
-    for key in keys
-  ])
+  return {
+    key : some_string.count(key)
+    for key in set(some_string)
+  }
 
 # Проверочки
 def test(func, arg):
