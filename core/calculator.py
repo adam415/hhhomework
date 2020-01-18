@@ -16,7 +16,10 @@ def inputNum():
     
     return result
 
+@cache_decorator
 def calculator(a, b, operation):
+    print('@cache_decorator has let me run')
+
     if not allAreOneOf((a, b), (int, float, complex)):
         return 'Invalid operands'
     if operation not in calculator.__operations__:
@@ -41,6 +44,11 @@ calculator.__operations__ = {
 }
 
 if __name__ == '__main__':
+    print('Секундочку. Протестируем декоратор:')
+    print('Сейчас функция должна реально считать значение:')
+    print(calculator(2, 3, operation='+'))
+    print('А теперь лишь достать значение из кеша:')
+    print(calculator(2, 3, operation='+'))
 
     a = inputNum()
     b = inputNum()
