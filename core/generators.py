@@ -15,11 +15,14 @@ N = 10
 already_generated = [randint(1, 100) for _ in range(1, N + 1)]
 
 print('gen')
-for r in gen(10): print(r)
+for r in gen(10):
+    print(r)
 
 print('gen2')
 # print(gen2(10)) - печатает <generator ...>, так что мы знаем, что это действительно генератор, а не сразу коллекция
-for r in gen2(10): print(r)
+for r in gen2(10):
+    print(r)
 
 print('already_generated')
-for r in already_generated: print(r)
+for r in already_generated:
+    print(r)

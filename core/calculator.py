@@ -10,9 +10,10 @@ def inputNum():
 
         try:
             result = float(inp)
-            break
         except:
             print('Не удалось распознать введенное число :(')
+        else:
+            break
     
     return result
 

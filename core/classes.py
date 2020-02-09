@@ -24,12 +24,7 @@ class Garage:
         return self.cars[index]
 
     def __repr__(self):
-        result = '['
-
-        for car in self.cars:
-            result += str(car) + ', '
-
-        return result.rstrip(', ') + ']'
+        return repr(self.cars)
 
     def add(self, car):
         self.cars.append(car)
@@ -44,8 +39,15 @@ g = Garage([
     Car('B3', 'M3')
 ])
 
+print('print(g): ')
 print(g)
-for c in g: print(c)
+
+print('iterate over g: ')
+for c in g:
+    print(c)
+
+
+print('after add and delete: ')
 
 g.add(Car('B4', 'C4'))
 g.add(Car('B5', 'C5'))

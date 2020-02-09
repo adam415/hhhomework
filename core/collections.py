@@ -37,20 +37,19 @@ def count_symbols(some_string):
     for key in set(some_string)
   }
 
+
 # Проверочки
-def test(func, arg):
-  print(func.__name__, ': ', arg, '~>', func(arg))
+def test(func, args):
+  print(func.__name__, ': ', args, ' ~> ', func(*args))
 
 calls = [
-  (even, not_even_list),
-  (get_ages, years_of_birth),
-  (get_first_n_last, numbers),
-  (get_list_without_repetition, list_with_repetition),
-  (count_symbols, s)
+  [ even,                            [not_even_list]        ],
+  [ get_ages,                        [years_of_birth]       ],
+  [ get_first_n_last,                [numbers]              ],
+  [ get_list_without_repetition,     [list_with_repetition] ],
+  [ map_keys_and_values,             [keys, values]         ],
+  [ count_symbols,                   [s]                    ]
 ]
 
-for call in calls: test(*call)
-
-# Поздно заметил, что у одной два аргумента
-print(map_keys_and_values.__name__, ': ', keys, ', ', values,
-  '~>', map_keys_and_values(keys, values))
+for call in calls:
+    test(call[0], call[1])
