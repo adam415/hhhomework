@@ -23,7 +23,7 @@ def calculator(a, b, operation):
 
     if not allAreOneOf((a, b), (int, float, complex)):
         return 'Invalid operands'
-    if operation not in calculator.__operations__:
+    if operation not in calculator.__operations:
         return 'Invalid operation'
 
     if operation in ['/', '//', '%'] and b == 0:
@@ -31,10 +31,10 @@ def calculator(a, b, operation):
     if operation == '%' and (isinstance(a, complex) or isinstance(b, complex)):
         return 'Undefined result'
 
-    return calculator.__operations__[operation](a, b)
+    return calculator.__operations[operation](a, b)
 
 # Типа private и каждый раз словарь не создавать
-calculator.__operations__ = {
+calculator.__operations = {
     '+' :   lambda x, y: x + y,
     '-' :   lambda x, y: x - y,
     '*' :   lambda x, y: x * y,

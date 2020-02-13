@@ -14,23 +14,25 @@ class Garage:
     # Поле должно задаваться через конструктор
     # По аналогии с классом Company из лекции реализовать интерфейс итерируемого
     # Реализовать методы add и delete(удалять по индексу) машин из гаража
-    def __init__(self, cars = []):
-        self.cars = cars
+    def __init__(self, cars = None):
+        if cars is None:
+            cars = []
+        self._cars = cars
     
     def __len__(self):
-        return len(self.cars)
+        return len(self._cars)
     
     def __getitem__(self, index):
-        return self.cars[index]
+        return self._cars[index]
 
     def __repr__(self):
-        return repr(self.cars)
+        return repr(self._cars)
 
     def add(self, car):
-        self.cars.append(car)
+        self._cars.append(car)
 
     def delete(self, index):
-        del self.cars[index]
+        del self._cars[index]
 
 
 g = Garage([
