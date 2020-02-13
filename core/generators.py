@@ -12,17 +12,18 @@ def gen2(N):
 
 # написать генераторное выражение, которое делает то же самое
 N = 10
-already_generated = [randint(1, 100) for _ in range(1, N + 1)]
+gen3 = (randint(1, 100) for _ in range(1, N + 1))
 
-print('gen')
-for r in gen(10):
+g1 = gen(10)
+print('gen', g1) # печатают <generator ...>, так что мы знаем, что это действительно генератор, а не сразу коллекция
+for r in g1:
     print(r)
 
-print('gen2')
-# print(gen2(10)) - печатает <generator ...>, так что мы знаем, что это действительно генератор, а не сразу коллекция
-for r in gen2(10):
+g2 = gen2(10)
+print('gen2', g2)
+for r in g2:
     print(r)
 
-print('already_generated')
-for r in already_generated:
+print('gen3', gen3)
+for r in gen3:
     print(r)
